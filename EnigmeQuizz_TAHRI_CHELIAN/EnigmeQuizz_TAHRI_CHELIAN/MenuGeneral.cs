@@ -16,5 +16,11 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EnigmeForm enigmeForm = new EnigmeForm();
+            enigmeForm.Show();
+        }
     }
 }

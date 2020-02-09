@@ -15,5 +15,8 @@ C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TA
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.csproj.CopyComplete
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.exe
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.pdb
-C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.Form1.resources
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.MenuGeneral.resources
+C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.InscriptionJoueur.resources
+C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.InterfaceBase.resources
+C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.ConnexionJoueur.resources
+C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.EnigmeForm.resources

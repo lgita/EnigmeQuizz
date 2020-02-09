@@ -85,15 +85,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ADOEnigme_Quizz.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ConnexionJoueur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnexionJoueur.Designer.cs">
+      <DependentUpon>ConnexionJoueur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Enigme.cs">
       <DependentUpon>ADOEnigme_Quizz.tt</DependentUpon>
     </Compile>
-    <Compile Include="EnigmeQuizzService.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="EnigmeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EnigmeForm.Designer.cs">
+      <DependentUpon>EnigmeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnigmeQuizzService.cs" />
+    <Compile Include="InscriptionJoueur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InscriptionJoueur.Designer.cs">
+      <DependentUpon>InscriptionJoueur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfaceBase.Designer.cs">
+      <DependentUpon>InterfaceBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Joueur.cs">
       <DependentUpon>ADOEnigme_Quizz.tt</DependentUpon>
@@ -115,8 +133,17 @@
     <Compile Include="ReponseQuizz.cs">
       <DependentUpon>ADOEnigme_Quizz.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ConnexionJoueur.resx">
+      <DependentUpon>ConnexionJoueur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnigmeForm.resx">
+      <DependentUpon>EnigmeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InscriptionJoueur.resx">
+      <DependentUpon>InscriptionJoueur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfaceBase.resx">
+      <DependentUpon>InterfaceBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuGeneral.resx">
       <DependentUpon>MenuGeneral.cs</DependentUpon>
@@ -143,7 +170,6 @@
     <None Include="Properties\DataSources\EnigmeQuizz_TAHRI_CHELIAN.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\EnigmeQuizz_TAHRI_CHELIAN.Properties.Settings.datasource" />
     <None Include="Properties\DataSources\EnigmeQuizz_TAHRI_CHELIAN_BDDEntities.datasource" />
-    <None Include="Properties\DataSources\Form1.datasource" />
     <None Include="Properties\DataSources\Joueur.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\QuestionQuizz.datasource" />
