@@ -12,6 +12,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 {
     public partial class InterfaceBase : Form
     {
+        EnigmeQuizzService service = new EnigmeQuizzService();
         public InterfaceBase()
         {
             InitializeComponent();
@@ -19,14 +20,15 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InscriptionJoueur inscriptionJoueur = new InscriptionJoueur();
-            inscriptionJoueur.Show();
+            ConnexionJoueur connexionJoueur = new ConnexionJoueur(service);
+            connexionJoueur.Show();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            InscriptionJoueur inscriptionJoueur = new InscriptionJoueur(service);
+            inscriptionJoueur.Show();
         }
 
 

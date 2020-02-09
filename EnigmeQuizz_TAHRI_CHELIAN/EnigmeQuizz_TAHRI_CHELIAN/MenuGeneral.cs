@@ -12,14 +12,20 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 {
     public partial class MenuGeneral : Form
     {
-        public MenuGeneral()
+        Joueur joueur1;
+        EnigmeQuizzService service1;
+
+        public MenuGeneral(EnigmeQuizzService service, Joueur joueur)
         {
             InitializeComponent();
+            joueur1 = joueur;
+            service1 = service;
+            this.label3.Text = joueur.pseudo;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            EnigmeForm enigmeForm = new EnigmeForm();
+            EnigmeForm enigmeForm = new EnigmeForm(service1, joueur1);
             enigmeForm.Show();
         }
     }

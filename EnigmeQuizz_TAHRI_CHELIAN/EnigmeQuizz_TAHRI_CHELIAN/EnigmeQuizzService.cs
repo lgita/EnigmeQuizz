@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnigmeQuizz_TAHRI_CHELIAN
 {
-    class EnigmeQuizzService
+    public class EnigmeQuizzService
     {
         EnigmeQuizz_TAHRI_CHELIAN_BDDEntities minisjeuxEntities = new EnigmeQuizz_TAHRI_CHELIAN_BDDEntities();
 
@@ -104,7 +104,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         /// <param name="pseudo">Pseudo unique entré à la création du joueur</param>
         /// <param name="mdp">Mot de passe lié à la création</param>
 
-        public void CreationJoueur(String pseudo, String mdp)
+        public Joueur CreationJoueur(String pseudo, String mdp)
         {
             Joueur joueur = new Joueur();
             joueur.pseudo = pseudo;
@@ -112,6 +112,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             joueur.scoreJoueur = 0;
             minisjeuxEntities.Joueur.Add(joueur);
             minisjeuxEntities.SaveChanges();
+            return joueur;
         }
 
         /// <summary>
@@ -203,7 +204,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             }
             return repQuizz;
         }
-
+    
 
 
 
@@ -226,6 +227,64 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
             jr = requeteJoueur.Single();
             return jr;
+
+        }
+        public int nombreEnigme()
+        {
+            Enigme enigme = new Enigme();
+
+            var requeteEnigme = from Enigme in InitListeEnigme()
+                                select Enigme;
+
+            List<Enigme> enigmes = requeteEnigme.ToList();
+
+            int element = enigmes.Count;
+            
+            return element;
+
+        }
+
+        public Enigme EnigmechoisiauHasard()
+        {
+            int nombremax = nombreEnigme();
+
+            Random aleatoire = new Random();
+            int idChoisiAuHasard = aleatoire.Next(nombremax);
+
+            Enigme enigme = new Enigme();
+
+            var requeteEnigme = from Enigme in InitListeEnigme()
+                                where Enigme.Id_enigme == idChoisiAuHasard
+                                select Enigme;
+
+
+            Enigme enigmechoisi = requeteEnigme.Single();
+
+            return enigmechoisi;
+
+        }
+
+        public Enigme RechercheEnigme(string corpsdelenigme)
+        {
+            Enigme enigme = new Enigme();
+
+            var requeteEnigme = from Enigme in InitListeEnigme()
+                                where Enigme.enigme1 == corpsdelenigme
+                                select Enigme;
+
+
+            enigme = requeteEnigme.Single();
+            return enigme;
+
+        }
+
+        public int modificationScore(Joueur joueur, int nouveauscore)
+        {
+            joueur.scoreJoueur = nouveauscore;
+            minisjeuxEntities.SaveChanges();
+            return (int) joueur.scoreJoueur;
+
+
 
         }
     }
