@@ -12,9 +12,19 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 {
     public partial class Form1 : Form
     {
+        EnigmeQuizzService service = new EnigmeQuizzService();
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String pseudo = textBox1.Text;
+            String mdp = textBox2.Text;
+            service.CreationJoueur(pseudo, mdp);
+            MenuGeneral menuGeneral = new MenuGeneral();
+            menuGeneral.Show();
         }
     }
 }

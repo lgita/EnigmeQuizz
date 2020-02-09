@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EnigmeQuizz_TAHRI_CHELIAN_BDDModelStoreContainer" CdmEntityContainer="EnigmeQuizz_TAHRI_CHELIAN_BDDEntities">
+    <EntitySetMapping Name="Enigme">
+      <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Enigme">
+        <MappingFragment StoreEntitySet="Enigme">
+          <ScalarProperty Name="Id_enigme" ColumnName="Id_enigme" />
+          <ScalarProperty Name="enigme1" ColumnName="enigme" />
+          <ScalarProperty Name="reponseEnigme" ColumnName="reponseEnigme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Joueur">
+      <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Joueur">
+        <MappingFragment StoreEntitySet="Joueur">
+          <ScalarProperty Name="Id_joueur" ColumnName="Id_joueur" />
+          <ScalarProperty Name="pseudo" ColumnName="pseudo" />
+          <ScalarProperty Name="mdp" ColumnName="mdp" />
+          <ScalarProperty Name="scoreJoueur" ColumnName="scoreJoueur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionQuizz">
+      <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.QuestionQuizz">
+        <MappingFragment StoreEntitySet="QuestionQuizz">
+          <ScalarProperty Name="Id_questionQuizz" ColumnName="Id_questionQuizz" />
+          <ScalarProperty Name="questionQuizz1" ColumnName="questionQuizz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quizz">
+      <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Quizz">
+        <MappingFragment StoreEntitySet="Quizz">
+          <ScalarProperty Name="Id_quizz" ColumnName="Id_quizz" />
+          <ScalarProperty Name="scoreQuizz" ColumnName="scoreQuizz" />
+          <ScalarProperty Name="theme" ColumnName="theme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReponseQuizz">
+      <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.ReponseQuizz">
+        <MappingFragment StoreEntitySet="ReponseQuizz">
+          <ScalarProperty Name="Id_reponseQuizz" ColumnName="Id_reponseQuizz" />
+          <ScalarProperty Name="reponseQuizz1" ColumnName="reponseQuizz" />
+          <ScalarProperty Name="isTrue" ColumnName="isTrue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

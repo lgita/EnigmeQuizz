@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnigmeQuizz_TAHRI_CHELIAN_BDDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Enigme">
+    <Key>
+      <PropertyRef Name="Id_enigme" />
+    </Key>
+    <Property Name="Id_enigme" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="enigme1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="reponseEnigme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Joueur">
+    <Key>
+      <PropertyRef Name="Id_joueur" />
+    </Key>
+    <Property Name="Id_joueur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pseudo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mdp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="scoreJoueur" Type="Int32" />
+  </EntityType>
+  <EntityType Name="QuestionQuizz">
+    <Key>
+      <PropertyRef Name="Id_questionQuizz" />
+    </Key>
+    <Property Name="Id_questionQuizz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="questionQuizz1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Quizz" Relationship="Self.FK_QuestionQuizz_ToQuizz" FromRole="QuestionQuizz" ToRole="Quizz" />
+    <NavigationProperty Name="ReponseQuizz" Relationship="Self.FK_ReponseQuizz_ToQuestionQuizz" FromRole="QuestionQuizz" ToRole="ReponseQuizz" />
+  </EntityType>
+  <EntityType Name="Quizz">
+    <Key>
+      <PropertyRef Name="Id_quizz" />
+    </Key>
+    <Property Name="Id_quizz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="scoreQuizz" Type="Int32" />
+    <Property Name="theme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="QuestionQuizz" Relationship="Self.FK_QuestionQuizz_ToQuizz" FromRole="Quizz" ToRole="QuestionQuizz" />
+  </EntityType>
+  <EntityType Name="ReponseQuizz">
+    <Key>
+      <PropertyRef Name="Id_reponseQuizz" />
+    </Key>
+    <Property Name="Id_reponseQuizz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reponseQuizz1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isTrue" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
+    <NavigationProperty Name="QuestionQuizz" Relationship="Self.FK_ReponseQuizz_ToQuestionQuizz" FromRole="ReponseQuizz" ToRole="QuestionQuizz" />
+  </EntityType>
+  <Association Name="FK_QuestionQuizz_ToQuizz">
+    <End Role="Quizz" Type="Self.Quizz" Multiplicity="1" />
+    <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Quizz">
+        <PropertyRef Name="Id_quizz" />
+      </Principal>
+      <Dependent Role="QuestionQuizz">
+        <PropertyRef Name="Id_questionQuizz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReponseQuizz_ToQuestionQuizz">
+    <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="1" />
+    <End Role="ReponseQuizz" Type="Self.ReponseQuizz" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionQuizz">
+        <PropertyRef Name="Id_questionQuizz" />
+      </Principal>
+      <Dependent Role="ReponseQuizz">
+        <PropertyRef Name="Id_reponseQuizz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EnigmeQuizz_TAHRI_CHELIAN_BDDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Enigme" EntityType="Self.Enigme" />
+    <EntitySet Name="Joueur" EntityType="Self.Joueur" />
+    <EntitySet Name="QuestionQuizz" EntityType="Self.QuestionQuizz" />
+    <EntitySet Name="Quizz" EntityType="Self.Quizz" />
+    <EntitySet Name="ReponseQuizz" EntityType="Self.ReponseQuizz" />
+    <AssociationSet Name="FK_QuestionQuizz_ToQuizz" Association="Self.FK_QuestionQuizz_ToQuizz">
+      <End Role="Quizz" EntitySet="Quizz" />
+      <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReponseQuizz_ToQuestionQuizz" Association="Self.FK_ReponseQuizz_ToQuestionQuizz">
+      <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
+      <End Role="ReponseQuizz" EntitySet="ReponseQuizz" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Enigme">
+    <Key>
+      <PropertyRef Name="Id_enigme" />
+    </Key>
+    <Property Name="Id_enigme" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="enigme" Type="nvarchar(max)" />
+    <Property Name="reponseEnigme" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Joueur">
+    <Key>
+      <PropertyRef Name="Id_joueur" />
+    </Key>
+    <Property Name="Id_joueur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pseudo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="mdp" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="scoreJoueur" Type="int" />
+  </EntityType>
+  <EntityType Name="QuestionQuizz">
+    <Key>
+      <PropertyRef Name="Id_questionQuizz" />
+    </Key>
+    <Property Name="Id_questionQuizz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="questionQuizz" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quizz">
+    <Key>
+      <PropertyRef Name="Id_quizz" />
+    </Key>
+    <Property Name="Id_quizz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="scoreQuizz" Type="int" />
+    <Property Name="theme" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReponseQuizz">
+    <Key>
+      <PropertyRef Name="Id_reponseQuizz" />
+    </Key>
+    <Property Name="Id_reponseQuizz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reponseQuizz" Type="nvarchar(max)" />
+    <Property Name="isTrue" Type="binary" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_QuestionQuizz_ToQuizz">
+    <End Role="Quizz" Type="Self.Quizz" Multiplicity="1" />
+    <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Quizz">
+        <PropertyRef Name="Id_quizz" />
+      </Principal>
+      <Dependent Role="QuestionQuizz">
+        <PropertyRef Name="Id_questionQuizz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReponseQuizz_ToQuestionQuizz">
+    <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="1" />
+    <End Role="ReponseQuizz" Type="Self.ReponseQuizz" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionQuizz">
+        <PropertyRef Name="Id_questionQuizz" />
+      </Principal>
+      <Dependent Role="ReponseQuizz">
+        <PropertyRef Name="Id_reponseQuizz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EnigmeQuizz_TAHRI_CHELIAN_BDDModelStoreContainer">
+    <EntitySet Name="Enigme" EntityType="Self.Enigme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Joueur" EntityType="Self.Joueur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionQuizz" EntityType="Self.QuestionQuizz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quizz" EntityType="Self.Quizz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReponseQuizz" EntityType="Self.ReponseQuizz" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_QuestionQuizz_ToQuizz" Association="Self.FK_QuestionQuizz_ToQuizz">
+      <End Role="Quizz" EntitySet="Quizz" />
+      <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReponseQuizz_ToQuestionQuizz" Association="Self.FK_ReponseQuizz_ToQuestionQuizz">
+      <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
+      <End Role="ReponseQuizz" EntitySet="ReponseQuizz" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
