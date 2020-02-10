@@ -15,28 +15,27 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         Joueur joueur1;
         EnigmeQuizzService service1;
         String themesouhaite;
+        int i = 0;
         public QuizzQuestion(EnigmeQuizzService service, Joueur joueur, String themequizz)
         {
             InitializeComponent();
-            this.Visible = false;
             joueur1 = joueur;
             service1 = service;
             themesouhaite = themequizz;
             label1.Text = "Vous avez choisi le theme " +themequizz;
-            List<QuestionQuizz> questionQuizzs = service1.QuestionQuizzpartheme(themesouhaite);
-            int nb = questionQuizzs.Count();
-            label2.Text = questionQuizzs.ElementAt(nb-1).ToString();
+            List<String> questionQuizzs = service1.QuestionQuizzpartheme(themesouhaite);
+            label2.Text = questionQuizzs.ElementAt(i).ToString();
+            string question = label2.Text;
+            i++;
+            List<String> reponseQuizz = service1.ReponsesQuizzparquestion(question);
+            int nb = reponseQuizz.Count();
+            for (int i = 0; i < nb ; i++)
+            {
+                //radioButton1.Text = reponseQuizz
+            }
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-        }
     }
 }

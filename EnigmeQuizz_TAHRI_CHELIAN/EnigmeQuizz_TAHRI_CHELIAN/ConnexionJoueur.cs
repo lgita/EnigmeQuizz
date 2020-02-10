@@ -19,7 +19,6 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         {
             InitializeComponent();
             service1 = service;
-           
 
         }
 
@@ -30,12 +29,6 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             Joueur joueurliee = service1.AuthentificationJoueur(pseudo, mdp);
             MenuGeneral menuGeneral = new MenuGeneral(service1, joueurliee);
             menuGeneral.Show();
-            this.Visible = false;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

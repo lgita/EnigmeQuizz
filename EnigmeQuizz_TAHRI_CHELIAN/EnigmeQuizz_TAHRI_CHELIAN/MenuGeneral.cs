@@ -20,27 +20,19 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             InitializeComponent();
             joueur1 = joueur;
             service1 = service;
-            
+            this.label3.Text = joueur.pseudo;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             EnigmeForm enigmeForm = new EnigmeForm(service1, joueur1);
             enigmeForm.Show();
-            this.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             QuizzForm quizzForm = new QuizzForm(service1, joueur1);
             quizzForm.Show();
-            this.Visible = false;
         }
-
-        private void MenuGeneral_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
