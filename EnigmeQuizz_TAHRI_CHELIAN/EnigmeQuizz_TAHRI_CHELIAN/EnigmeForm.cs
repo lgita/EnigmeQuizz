@@ -17,6 +17,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         EnigmeQuizzService service1;
 
 
+
         public EnigmeForm(EnigmeQuizzService service, Joueur joueur)
         {
             InitializeComponent();
@@ -50,7 +51,8 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
               
 
             }
-            
+            this.Visible = false;
+
         }
 
         private void label1_Click(object sender, EventArgs e)

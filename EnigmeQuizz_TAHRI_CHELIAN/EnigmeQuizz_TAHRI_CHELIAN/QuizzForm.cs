@@ -14,10 +14,12 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
     {
         Joueur joueur1;
         EnigmeQuizzService service1;
+        
 
         public QuizzForm(EnigmeQuizzService service, Joueur joueur)
         {
             InitializeComponent();
+            this.Visible = false;
             joueur1 = joueur;
             service1 = service;
             List<String> listheme = new List<string>();
@@ -36,6 +38,12 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             string theme1 = domainUpDown1.Text;
             QuizzQuestion quizzQuestion = new QuizzQuestion(service1, joueur1, theme1);
             quizzQuestion.Show();
+            this.Visible = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

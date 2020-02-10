@@ -18,6 +18,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         public QuizzQuestion(EnigmeQuizzService service, Joueur joueur, String themequizz)
         {
             InitializeComponent();
+            this.Visible = false;
             joueur1 = joueur;
             service1 = service;
             themesouhaite = themequizz;
@@ -28,6 +29,14 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
     }
 }
