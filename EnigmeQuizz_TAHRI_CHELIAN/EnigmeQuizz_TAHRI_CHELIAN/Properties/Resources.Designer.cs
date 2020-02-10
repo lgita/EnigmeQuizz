@@ -113,6 +113,16 @@ namespace EnigmeQuizz_TAHRI_CHELIAN.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mountains_5120x2880_silent_sunset_minimal_5k_10447 {
+            get {
+                object obj = ResourceManager.GetObject("mountains-5120x2880-silent-sunset-minimal-5k-10447", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap welcome_text_animation_over_bokeh_background_r7aij_yx__S0006 {
             get {
                 object obj = ResourceManager.GetObject("welcome-text-animation-over-bokeh-background_r7aij_yx__S0006", resourceCulture);

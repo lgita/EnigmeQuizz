@@ -225,6 +225,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>EnigmeQuizz_TAHRI_CHELIAN_BDD.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\mountains-5120x2880-silent-sunset-minimal-5k-10447.jpg" />
     <None Include="Resources\BLOG---Login-Screen-SS3.png.jpg" />
     <None Include="Resources\welcome-text-animation-over-bokeh-background_r7aij_yx__S0006.jpg" />
     <None Include="Resources\images1.jpg" />
