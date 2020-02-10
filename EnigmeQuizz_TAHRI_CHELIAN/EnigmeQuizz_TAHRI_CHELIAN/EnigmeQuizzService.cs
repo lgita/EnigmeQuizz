@@ -112,10 +112,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         /// 
         public void CreationEnigme(String enigme, String reponseEnigme)
         {
-            Enigme engme = new Enigme();
-            engme.enigme1 = enigme;
-            engme.reponseEnigme = reponseEnigme;
-            minisjeuxEntities.Enigme.Add(engme);
+            Enigme enigmeResultat = new Enigme();
+            enigmeResultat.enigme1 = enigme;
+            enigmeResultat.reponseEnigme = reponseEnigme;
+            minisjeuxEntities.Enigme.Add(enigmeResultat);
             minisjeuxEntities.SaveChanges();
         }
 
@@ -180,15 +180,15 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         public int RechercherScoreJoueur(Joueur joueur)
         {
 
-            Joueur joueurRecherche = new Joueur();
+            Joueur joueurResultat = new Joueur();
 
             int idjoueur = joueur.Id_joueur;
             var requeteScoreJoueur = from Joueur in InitListeJoueur()
                                      where Joueur.Id_joueur == idjoueur
                                      select Joueur;
 
-            joueurRecherche = requeteScoreJoueur.Single();
-            int score = Convert.ToInt32(joueurRecherche.scoreJoueur);
+            joueurResultat = requeteScoreJoueur.Single();
+            int score = Convert.ToInt32(joueurResultat.scoreJoueur);
             return score;
 
 
