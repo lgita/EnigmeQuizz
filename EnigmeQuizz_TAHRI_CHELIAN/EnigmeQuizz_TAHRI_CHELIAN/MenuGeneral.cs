@@ -20,7 +20,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             InitializeComponent();
             joueur1 = joueur;
             service1 = service;
-            this.label3.Text = joueur.pseudo;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,5 +39,6 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         {
 
         }
+
     }
 }

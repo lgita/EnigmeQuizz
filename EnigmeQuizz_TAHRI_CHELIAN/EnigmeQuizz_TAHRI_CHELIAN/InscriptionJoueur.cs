@@ -28,5 +28,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             MenuGeneral menuGeneral = new MenuGeneral(service1,joueurconnecte);
             menuGeneral.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

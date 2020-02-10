@@ -52,5 +52,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             }
             
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
