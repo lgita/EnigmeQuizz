@@ -10,30 +10,51 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
     {
         EnigmeQuizz_TAHRI_CHELIAN_BDDEntities minisjeuxEntities = new EnigmeQuizz_TAHRI_CHELIAN_BDDEntities();
 
+        /// <summary>
+        /// Initilisation de la liste de reponses aux quizz
+        /// </summary>
+        /// <returns></returns>
         public List<ReponseQuizz> InitListeReponseQuizz()
         {
             return minisjeuxEntities.ReponseQuizz.ToList();
 
         }
 
+        /// <summary>
+        /// Initialisation de la liste de questions aux quizz
+        /// </summary>
+        /// <returns></returns>
         public List<QuestionQuizz> InitListeQuestionsQuizz()
         {
             return minisjeuxEntities.QuestionQuizz.ToList();
 
         }
 
+        /// <summary>
+        /// Initialisation de la liste d'enigmes
+        /// </summary>
+        /// <returns></returns>
         public List<Enigme> InitListeEnigme()
         {
             return minisjeuxEntities.Enigme.ToList();
 
         }
 
+        /// <summary>
+        /// Initialisation de la liste de quizz
+        /// </summary>
+        /// <returns></returns>
         public List<Quizz> InitListeQuizz()
         {
             return minisjeuxEntities.Quizz.ToList();
 
         }
 
+
+        /// <summary>
+        /// Initialisation de la liste des joueurs
+        /// </summary>
+        /// <returns></returns>
         public List<Joueur> InitListeJoueur()
         {
             return minisjeuxEntities.Joueur.ToList();
@@ -91,10 +112,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         /// 
         public void CreationEnigme(String enigme, String reponseEnigme)
         {
-            Enigme engme = new Enigme();
-            engme.enigme1 = enigme;
-            engme.reponseEnigme = reponseEnigme;
-            minisjeuxEntities.Enigme.Add(engme);
+            Enigme enigmeResultat = new Enigme();
+            enigmeResultat.enigme1 = enigme;
+            enigmeResultat.reponseEnigme = reponseEnigme;
+            minisjeuxEntities.Enigme.Add(enigmeResultat);
             minisjeuxEntities.SaveChanges();
         }
 
@@ -116,7 +137,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         }
 
         /// <summary>
-        /// Méthode permettant de recherche un quizz par thème
+        /// Permet de recherche un quizz par theme
         /// </summary>
         /// <param name="theme">Theme du quizz recherché</param>
         /// <returns></returns>
@@ -133,7 +154,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
-
+        /// <summary>
+        /// Permet de rechercher le theme d'un quizz
+        /// </summary>
+        /// <returns></returns>
         public List<String> QuizzTheme()
         {
             List<String> listeQuizz = null;
@@ -149,31 +173,31 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
 
         /// <summary>
-        /// Rechercher un score par Joueur
+        /// Permet de rechercher un score par joueur
         /// </summary>
         /// <param name="joueur">Joueur dont on cherche le score</param>
         /// <returns></returns>
         public int RechercherScoreJoueur(Joueur joueur)
         {
 
-            Joueur jr = new Joueur();
+            Joueur joueurResultat = new Joueur();
 
             int idjoueur = joueur.Id_joueur;
             var requeteScoreJoueur = from Joueur in InitListeJoueur()
                                      where Joueur.Id_joueur == idjoueur
                                      select Joueur;
 
-            jr = requeteScoreJoueur.Single();
-            int score = Convert.ToInt32(jr.scoreJoueur);
+            joueurResultat = requeteScoreJoueur.Single();
+            int score = Convert.ToInt32(joueurResultat.scoreJoueur);
             return score;
 
 
         }
         /// <summary>
-        /// Verifier si l'enigme et correcte ou non 
+        /// Permet de verifier si l'enigme est correcte ou non 
         /// </summary>
-        /// <param name="reponseEnigmeJoueur"></param>
-        /// <param name="enigme"></param>
+        /// <param name="reponseEnigmeJoueur">reponse donnee a l'enigme par le joueur</param>
+        /// <param name="enigme">enigme dont la reponse est verifiee</param>
         /// <returns></returns>
         public Boolean EnigmeCorrecte(String reponseEnigmeJoueur, Enigme enigme)
         {
@@ -192,11 +216,11 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         }
 
         /// <summary>
-        /// Verifier si le quizz est correct ou non 
+        /// Permet de verifier si le quizz est correct ou non 
         /// </summary>
-        /// <param name="reponseQuizzJoueur"></param>
-        /// <param name="quizz"></param>
-        /// <param name="reponseQuizz"></param>
+        /// <param name="reponseQuizzJoueur">reponse donne au quizz par le joueur</param>
+        /// <param name="quizz">Objet quizz</param>
+        /// <param name="reponseQuizz">reponse du quizz recherche en base et compare a la reponse du joueur</param>
         /// <returns></returns>
         public Boolean QuizzCorrect(String reponseQuizzJoueur, Quizz quizz, ReponseQuizz reponseQuizz)
         {
@@ -230,7 +254,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         /// <returns></returns>
         public Joueur AuthentificationJoueur(String pseudo, String mdp)
         {
-            Joueur jr = new Joueur();
+            Joueur joueur = new Joueur();
 
             var requeteJoueur = from Joueur in InitListeJoueur()
                                 where Joueur.pseudo == pseudo
@@ -238,10 +262,15 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
                                 select Joueur;
 
 
-            jr = requeteJoueur.Single();
-            return jr;
+            joueur = requeteJoueur.Single();
+            return joueur;
 
         }
+
+        /// <summary>
+        /// Permet d'obtenir le nombre d'enigmes dans la liste 
+        /// </summary>
+        /// <returns></returns>
         public int nombreEnigme()
         {
             Enigme enigme = new Enigme();
@@ -257,12 +286,16 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        /// <summary>
+        /// Permet de retourner une enigme au hasard
+        /// </summary>
+        /// <returns></returns>
         public Enigme EnigmechoisiauHasard()
         {
-            int nombremax = nombreEnigme();
+            int nombreMax = nombreEnigme();
 
             Random aleatoire = new Random();
-            int idChoisiAuHasard = aleatoire.Next(nombremax);
+            int idChoisiAuHasard = aleatoire.Next(nombreMax);
 
             Enigme enigme = new Enigme();
 
@@ -277,6 +310,11 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        /// <summary>
+        /// Permet de rechercher une enigme par corps de l'engime
+        /// </summary>
+        /// <param name="corpsdelenigme">corps de l'engime de l'enigme recherchee</param>
+        /// <returns></returns>
         public Enigme RechercheEnigme(string corpsdelenigme)
         {
             Enigme enigme = new Enigme();
@@ -291,42 +329,37 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        /// <summary>
+        /// Permet de modifier le score d'un joueur
+        /// </summary>
+        /// <param name="joueur">joueur dont le score est modifie</param>
+        /// <param name="nouveauscore">nouveau score affecte</param>
+        /// <returns></returns>
         public int modificationScore(Joueur joueur, int nouveauscore)
         {
             joueur.scoreJoueur = nouveauscore;
             minisjeuxEntities.SaveChanges();
             return (int) joueur.scoreJoueur;
 
-
-
         }
-        public List<String> QuestionQuizzpartheme(string theme)
+
+        /// <summary>
+        /// Permet de rechercher un quizz par theme
+        /// </summary>
+        /// <param name="theme">theme du quizz recherche</param>
+        /// <returns></returns>
+        public List<QuestionQuizz> QuestionQuizzpartheme(string theme)
         {
-            List<String> questionQuizzs = new List<String>();
+            List<QuestionQuizz> questionQuizzs = new List<QuestionQuizz>();
             
 
-            var requeteQuestionq = from QuestionQuizz in InitListeQuestionsQuizz()
+            var requeteQuestionQuizz = from QuestionQuizz in InitListeQuestionsQuizz()
                                 where QuestionQuizz.Quizz1.theme == theme
-                                select QuestionQuizz.questionQuizz1;
+                                select QuestionQuizz;
 
 
-            questionQuizzs = requeteQuestionq.ToList();
+            questionQuizzs = requeteQuestionQuizz.ToList();
             return questionQuizzs;
-
-        }
-
-        public List<String> ReponsesQuizzparquestion(string question)
-        {
-            List<String> reponsesQuizzs = new List<String>();
-
-
-            var requeteQuestionq = from ReponseQuizz in InitListeReponseQuizz()
-                                   where ReponseQuizz.QuestionQuizz1.questionQuizz1 == question
-                                   select ReponseQuizz.reponseQuizz1;
-
-
-            reponsesQuizzs = requeteQuestionq.ToList();
-            return reponsesQuizzs;
 
         }
     }
