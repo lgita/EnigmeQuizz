@@ -34,5 +34,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             QuizzForm quizzForm = new QuizzForm(service1, joueur1);
             quizzForm.Show();
         }
+
+        private void MenuGeneral_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

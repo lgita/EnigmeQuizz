@@ -168,6 +168,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="QuizzForm.resx">
       <DependentUpon>QuizzForm.cs</DependentUpon>
@@ -224,6 +225,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>EnigmeQuizz_TAHRI_CHELIAN_BDD.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\BLOG---Login-Screen-SS3.png.jpg" />
+    <None Include="Resources\welcome-text-animation-over-bokeh-background_r7aij_yx__S0006.jpg" />
+    <None Include="Resources\images1.jpg" />
+    <None Include="Resources\csm_QuizAllgemeinLeicht_425cc26868.jpg" />
+    <None Include="Resources\index.jpg" />
+    <None Include="Resources\images.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

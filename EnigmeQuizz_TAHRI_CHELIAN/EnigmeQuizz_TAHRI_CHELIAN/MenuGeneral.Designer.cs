@@ -38,7 +38,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 52);
+            this.label1.Location = new System.Drawing.Point(127, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
@@ -47,7 +47,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(143, 84);
+            this.button1.Location = new System.Drawing.Point(143, 89);
             this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 32);
@@ -91,6 +91,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::EnigmeQuizz_TAHRI_CHELIAN.Properties.Resources.images;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(395, 196);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -100,6 +102,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MenuGeneral";
             this.Text = "MenuGeneral";
+            this.Load += new System.EventHandler(this.MenuGeneral_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
