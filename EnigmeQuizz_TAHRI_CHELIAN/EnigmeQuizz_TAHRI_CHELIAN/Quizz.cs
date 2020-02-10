@@ -14,10 +14,18 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
     
     public partial class Quizz
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Quizz()
+        {
+            this.QuestionQuizz1 = new HashSet<QuestionQuizz>();
+        }
+    
         public int Id_quizz { get; set; }
         public Nullable<int> scoreQuizz { get; set; }
         public string theme { get; set; }
     
         public virtual QuestionQuizz QuestionQuizz { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QuestionQuizz> QuestionQuizz1 { get; set; }
     }
 }

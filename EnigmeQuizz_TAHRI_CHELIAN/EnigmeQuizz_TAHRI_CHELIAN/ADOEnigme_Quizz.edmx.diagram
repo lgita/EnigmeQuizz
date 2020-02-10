@@ -8,10 +8,12 @@
         <EntityTypeShape EntityType="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Enigme" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Joueur" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.QuestionQuizz" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Quizz" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Quizz" Width="1.875" PointX="0.5" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.ReponseQuizz" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_QuestionQuizz_ToQuizz" ManuallyRouted="false" />
         <AssociationConnector Association="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_ReponseQuizz_ToQuestionQuizz" ManuallyRouted="false" />
+        <AssociationConnector Association="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_QuestionQuizz_ToQuizz1" />
+        <AssociationConnector Association="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_ReponseQuizz_ToQuestionQuizz1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -23,8 +23,9 @@
     </Key>
     <Property Name="Id_questionQuizz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="questionQuizz1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Quizz" Relationship="Self.FK_QuestionQuizz_ToQuizz" FromRole="QuestionQuizz" ToRole="Quizz" />
-    <NavigationProperty Name="ReponseQuizz" Relationship="Self.FK_ReponseQuizz_ToQuestionQuizz" FromRole="QuestionQuizz" ToRole="ReponseQuizz" />
+    <Property Name="id_Quizz" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Quizz1" Relationship="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_QuestionQuizz_ToQuizz1" FromRole="QuestionQuizz" ToRole="Quizz" />
+    <NavigationProperty Name="ReponseQuizz1" Relationship="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_ReponseQuizz_ToQuestionQuizz1" FromRole="QuestionQuizz" ToRole="ReponseQuizz" />
   </EntityType>
   <EntityType Name="Quizz">
     <Key>
@@ -34,6 +35,7 @@
     <Property Name="scoreQuizz" Type="Int32" />
     <Property Name="theme" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="QuestionQuizz" Relationship="Self.FK_QuestionQuizz_ToQuizz" FromRole="Quizz" ToRole="QuestionQuizz" />
+    <NavigationProperty Name="QuestionQuizz1" Relationship="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_QuestionQuizz_ToQuizz1" FromRole="Quizz" ToRole="QuestionQuizz" />
   </EntityType>
   <EntityType Name="ReponseQuizz">
     <Key>
@@ -41,8 +43,9 @@
     </Key>
     <Property Name="Id_reponseQuizz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="reponseQuizz1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="isTrue" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
-    <NavigationProperty Name="QuestionQuizz" Relationship="Self.FK_ReponseQuizz_ToQuestionQuizz" FromRole="ReponseQuizz" ToRole="QuestionQuizz" />
+    <Property Name="isTrue" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="Questions_Quizz" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="QuestionQuizz1" Relationship="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_ReponseQuizz_ToQuestionQuizz1" FromRole="ReponseQuizz" ToRole="QuestionQuizz" />
   </EntityType>
   <Association Name="FK_QuestionQuizz_ToQuizz">
     <End Role="Quizz" Type="Self.Quizz" Multiplicity="1" />
@@ -82,5 +85,37 @@
       <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
       <End Role="ReponseQuizz" EntitySet="ReponseQuizz" />
     </AssociationSet>
+    <AssociationSet Name="FK_QuestionQuizz_ToQuizz1" Association="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_QuestionQuizz_ToQuizz1">
+      <End Role="Quizz" EntitySet="Quizz" />
+      <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReponseQuizz_ToQuestionQuizz1" Association="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.FK_ReponseQuizz_ToQuestionQuizz1">
+      <End Role="QuestionQuizz" EntitySet="QuestionQuizz" />
+      <End Role="ReponseQuizz" EntitySet="ReponseQuizz" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_QuestionQuizz_ToQuizz1">
+    <End Type="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.Quizz" Role="Quizz" Multiplicity="1" />
+    <End Type="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.QuestionQuizz" Role="QuestionQuizz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quizz">
+        <PropertyRef Name="Id_quizz" />
+      </Principal>
+      <Dependent Role="QuestionQuizz">
+        <PropertyRef Name="id_Quizz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReponseQuizz_ToQuestionQuizz1">
+    <End Type="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.QuestionQuizz" Role="QuestionQuizz" Multiplicity="1" />
+    <End Type="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.ReponseQuizz" Role="ReponseQuizz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionQuizz">
+        <PropertyRef Name="Id_questionQuizz" />
+      </Principal>
+      <Dependent Role="ReponseQuizz">
+        <PropertyRef Name="Questions_Quizz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -136,6 +136,12 @@
     <Compile Include="QuizzForm.Designer.cs">
       <DependentUpon>QuizzForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuizzQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizzQuestion.Designer.cs">
+      <DependentUpon>QuizzQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReponseQuizz.cs">
       <DependentUpon>ADOEnigme_Quizz.tt</DependentUpon>
     </Compile>
@@ -165,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="QuizzForm.resx">
       <DependentUpon>QuizzForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuizzQuestion.resx">
+      <DependentUpon>QuizzQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="ADOEnigme_Quizz.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

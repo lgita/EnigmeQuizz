@@ -16,8 +16,9 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
     {
         public int Id_reponseQuizz { get; set; }
         public string reponseQuizz1 { get; set; }
-        public byte[] isTrue { get; set; }
+        public string isTrue { get; set; }
+        public int Questions_Quizz { get; set; }
     
-        public virtual QuestionQuizz QuestionQuizz { get; set; }
+        public virtual QuestionQuizz QuestionQuizz1 { get; set; }
     }
 }

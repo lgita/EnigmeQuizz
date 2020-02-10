@@ -20,3 +20,5 @@ C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TA
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.InterfaceBase.resources
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.ConnexionJoueur.resources
 C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.EnigmeForm.resources
+C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.QuizzForm.resources
+C:\Users\tahri\Source\Repos\EnigmeQuizz\EnigmeQuizz_TAHRI_CHELIAN\EnigmeQuizz_TAHRI_CHELIAN\obj\Debug\EnigmeQuizz_TAHRI_CHELIAN.QuizzQuestion.resources

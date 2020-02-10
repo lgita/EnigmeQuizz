@@ -23,6 +23,7 @@
     <EntitySetMapping Name="QuestionQuizz">
       <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.QuestionQuizz">
         <MappingFragment StoreEntitySet="QuestionQuizz">
+          <ScalarProperty Name="id_Quizz" ColumnName="id_Quizz" />
           <ScalarProperty Name="Id_questionQuizz" ColumnName="Id_questionQuizz" />
           <ScalarProperty Name="questionQuizz1" ColumnName="questionQuizz" />
         </MappingFragment>
@@ -40,6 +41,7 @@
     <EntitySetMapping Name="ReponseQuizz">
       <EntityTypeMapping TypeName="EnigmeQuizz_TAHRI_CHELIAN_BDDModel.ReponseQuizz">
         <MappingFragment StoreEntitySet="ReponseQuizz">
+          <ScalarProperty Name="Questions_Quizz" ColumnName="Questions_Quizz" />
           <ScalarProperty Name="Id_reponseQuizz" ColumnName="Id_reponseQuizz" />
           <ScalarProperty Name="reponseQuizz1" ColumnName="reponseQuizz" />
           <ScalarProperty Name="isTrue" ColumnName="isTrue" />

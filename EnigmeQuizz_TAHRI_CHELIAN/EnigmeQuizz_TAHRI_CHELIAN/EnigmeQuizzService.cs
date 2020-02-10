@@ -47,7 +47,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         /// <param name="reponse">Reponse lié à la question</param>
         /// <param name="questionlie">Récupération de la question lié</param>
 
-        public void CreationReponseQuizz(String reponse, QuestionQuizz questionlie)
+       /* public void CreationReponseQuizz(String reponse, QuestionQuizz questionlie)
         {
             ReponseQuizz rquizz = new ReponseQuizz();
             rquizz.reponseQuizz1 = reponse;
@@ -69,7 +69,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             minisjeuxEntities.QuestionQuizz.Add(qquizz);
             minisjeuxEntities.SaveChanges();
 
-        }
+        }*/
         /// <summary>
         /// Méthode permettant de créer un quizz
         /// </summary>
@@ -133,6 +133,19 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+
+        public List<String> QuizzTheme()
+        {
+            List<String> listeQuizz = null;
+
+            var requeteQuizz = from Quizz in InitListeQuizz()
+                               select Quizz.theme;
+
+            listeQuizz = requeteQuizz.ToList();
+            
+            return listeQuizz;
+
+        }
 
 
         /// <summary>
@@ -285,6 +298,20 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             return (int) joueur.scoreJoueur;
 
 
+
+        }
+        public List<QuestionQuizz> QuestionQuizzpartheme(string theme)
+        {
+            List<QuestionQuizz> questionQuizzs = new List<QuestionQuizz>();
+            
+
+            var requeteQuestionq = from QuestionQuizz in InitListeQuestionsQuizz()
+                                where QuestionQuizz.Quizz1.theme == theme
+                                select QuestionQuizz;
+
+
+            questionQuizzs = requeteQuestionq.ToList();
+            return questionQuizzs;
 
         }
     }

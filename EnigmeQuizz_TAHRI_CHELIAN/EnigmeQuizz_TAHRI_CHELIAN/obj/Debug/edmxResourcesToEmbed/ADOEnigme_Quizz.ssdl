@@ -23,6 +23,7 @@
     </Key>
     <Property Name="Id_questionQuizz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="questionQuizz" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id_Quizz" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Quizz">
     <Key>
@@ -38,29 +39,30 @@
     </Key>
     <Property Name="Id_reponseQuizz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="reponseQuizz" Type="nvarchar(max)" />
-    <Property Name="isTrue" Type="binary" MaxLength="1" Nullable="false" />
+    <Property Name="isTrue" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="Questions_Quizz" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_QuestionQuizz_ToQuizz">
     <End Role="Quizz" Type="Self.Quizz" Multiplicity="1" />
-    <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="0..1" />
+    <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Quizz">
         <PropertyRef Name="Id_quizz" />
       </Principal>
       <Dependent Role="QuestionQuizz">
-        <PropertyRef Name="Id_questionQuizz" />
+        <PropertyRef Name="id_Quizz" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ReponseQuizz_ToQuestionQuizz">
     <End Role="QuestionQuizz" Type="Self.QuestionQuizz" Multiplicity="1" />
-    <End Role="ReponseQuizz" Type="Self.ReponseQuizz" Multiplicity="0..1" />
+    <End Role="ReponseQuizz" Type="Self.ReponseQuizz" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="QuestionQuizz">
         <PropertyRef Name="Id_questionQuizz" />
       </Principal>
       <Dependent Role="ReponseQuizz">
-        <PropertyRef Name="Id_reponseQuizz" />
+        <PropertyRef Name="Questions_Quizz" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
