@@ -10,30 +10,51 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
     {
         EnigmeQuizz_TAHRI_CHELIAN_BDDEntities minisjeuxEntities = new EnigmeQuizz_TAHRI_CHELIAN_BDDEntities();
 
+        /// <summary>
+        /// Initilisation de la liste de reponses aux quizz
+        /// </summary>
+        /// <returns></returns>
         public List<ReponseQuizz> InitListeReponseQuizz()
         {
             return minisjeuxEntities.ReponseQuizz.ToList();
 
         }
 
+        /// <summary>
+        /// Initialisation de la liste de questions aux quizz
+        /// </summary>
+        /// <returns></returns>
         public List<QuestionQuizz> InitListeQuestionsQuizz()
         {
             return minisjeuxEntities.QuestionQuizz.ToList();
 
         }
 
+        /// <summary>
+        /// Initialisation de la liste d'enigmes
+        /// </summary>
+        /// <returns></returns>
         public List<Enigme> InitListeEnigme()
         {
             return minisjeuxEntities.Enigme.ToList();
 
         }
 
+        /// <summary>
+        /// Initialisation de la liste de quizz
+        /// </summary>
+        /// <returns></returns>
         public List<Quizz> InitListeQuizz()
         {
             return minisjeuxEntities.Quizz.ToList();
 
         }
 
+
+        /// <summary>
+        /// Initialisation de la liste des joueurs
+        /// </summary>
+        /// <returns></returns>
         public List<Joueur> InitListeJoueur()
         {
             return minisjeuxEntities.Joueur.ToList();
@@ -133,7 +154,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
-
+        /// <summary>
+        /// Rechercher le theme d'un quizz
+        /// </summary>
+        /// <returns></returns>
         public List<String> QuizzTheme()
         {
             List<String> listeQuizz = null;
@@ -170,7 +194,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
         /// <summary>
-        /// Verifier si l'enigme et correcte ou non 
+        /// Verifier si l'enigme est correcte ou non 
         /// </summary>
         /// <param name="reponseEnigmeJoueur"></param>
         /// <param name="enigme"></param>
@@ -242,6 +266,11 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             return jr;
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public int nombreEnigme()
         {
             Enigme enigme = new Enigme();
@@ -257,6 +286,10 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        /// <summary>
+        /// Methode permettant de retourner une enigme au hasard
+        /// </summary>
+        /// <returns></returns>
         public Enigme EnigmechoisiauHasard()
         {
             int nombremax = nombreEnigme();
@@ -277,6 +310,11 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        /// <summary>
+        /// Methode permettant de rechercher une enigme par corps d'engime
+        /// </summary>
+        /// <param name="corpsdelenigme"></param>
+        /// <returns></returns>
         public Enigme RechercheEnigme(string corpsdelenigme)
         {
             Enigme enigme = new Enigme();
@@ -291,15 +329,25 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
         }
 
+        /// <summary>
+        /// Methode permettant de modifier le score du joueur
+        /// </summary>
+        /// <param name="joueur"></param>
+        /// <param name="nouveauscore"></param>
+        /// <returns></returns>
         public int modificationScore(Joueur joueur, int nouveauscore)
         {
             joueur.scoreJoueur = nouveauscore;
             minisjeuxEntities.SaveChanges();
             return (int) joueur.scoreJoueur;
 
-
-
         }
+
+        /// <summary>
+        /// Methode permettant de rechercher un quizz par theme
+        /// </summary>
+        /// <param name="theme"></param>
+        /// <returns></returns>
         public List<QuestionQuizz> QuestionQuizzpartheme(string theme)
         {
             List<QuestionQuizz> questionQuizzs = new List<QuestionQuizz>();
