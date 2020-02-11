@@ -35,6 +35,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         private void button1_Click(object sender, EventArgs e)
         {
             string theme1 = domainUpDown1.Text;
+            this.Close();
             QuizzQuestion quizzQuestion = new QuizzQuestion(service1, joueur1, theme1);
             quizzQuestion.Show();
         }

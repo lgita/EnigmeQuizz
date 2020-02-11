@@ -16,6 +16,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         EnigmeQuizzService service1;
         String themesouhaite;
         string reponse;
+        int i = 0;
         public QuizzQuestion(EnigmeQuizzService service, Joueur joueur, String themequizz)
         {
             InitializeComponent();
@@ -25,9 +26,7 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
             label1.Text = "Vous avez choisi le theme " + "" + themequizz;
             List<String> questionQuizzs = service1.QuestionQuizzpartheme(themesouhaite);
             int nb = questionQuizzs.Count();
-            for (int i = 0; i < nb; i++)
-            {
-
+            
                 label2.Text = questionQuizzs.ElementAt(i).ToString();
                 List<String> reponsequestion = service1.ReponseQuizzparQuestion(label2.Text);
 
@@ -42,8 +41,8 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
                 {
                     MessageBox.Show("Le nombre de réponse n'est pas suffisante");
                 }
-
-            }
+            i++;
+            
 
 
 
@@ -71,16 +70,17 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
                 }
 
             }
-                ReponseQuizz reponseselectionne = service1.RechercheReponseQuizz(reponse);
+            ReponseQuizz reponseselectionne = service1.RechercheReponseQuizz(reponse);
             
-            if (reponseselectionne.isTrue.Contains(reponsejuste.reponseQuizz1))
+            if (reponseselectionne.isTrue == "TRUE ")
                 {
                     MessageBox.Show("Bien joué +3 points");
                     int score = (int)joueur1.scoreJoueur;
                     int nouveauscore = score + 3;
                     int confirmationscore = service1.modificationScore(joueur1, nouveauscore);
                     MessageBox.Show("Votre score est maintenant de" + confirmationscore);
-
+                    this.Refresh();
+                    
 
 
             }
@@ -89,13 +89,46 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
 
                     MessageBox.Show("Dommage, retentez votre chance ! " +
                         "La réponse était" + reponsejuste.reponseQuizz1);
+                this.Refresh();
 
 
-
-                }
 
             }
 
+            List<String> questionQuizzs = service1.QuestionQuizzpartheme(themesouhaite);
+            int nb = questionQuizzs.Count();
+            if (i < nb)
+            {
+
+                label2.Text = questionQuizzs.ElementAt(i).ToString();
+
+                List<String> reponsequestion = service1.ReponseQuizzparQuestion(label2.Text);
+                int nbreponse = reponsequestion.Count();
+                if (nbreponse == 3)
+                {
+                    radioButton1.Text = reponsequestion.ElementAt(0).ToString();
+                    radioButton2.Text = reponsequestion.ElementAt(1).ToString();
+                    radioButton3.Text = reponsequestion.ElementAt(2).ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Le nombre de réponse n'est pas suffisante");
+                }
+                i++;
+
+            }
+            else
+            {
+
+                int score = (int)joueur1.scoreJoueur;
+                MessageBox.Show("Vous avez fini le quizz ! Félicitation, votre score est désormais de" + score);
+                this.Close();
+            }
+            
+
+          
+        }
+        
         }
     
 }
