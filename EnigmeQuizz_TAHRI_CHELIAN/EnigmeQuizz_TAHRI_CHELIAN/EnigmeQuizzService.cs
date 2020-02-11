@@ -344,23 +344,84 @@ namespace EnigmeQuizz_TAHRI_CHELIAN
         }
 
         /// <summary>
-        /// Permet de rechercher un quizz par theme
+        /// Permet de rechercher des questions de quizz par theme
         /// </summary>
         /// <param name="theme">theme du quizz recherche</param>
         /// <returns></returns>
-        public List<QuestionQuizz> QuestionQuizzpartheme(string theme)
+        public List<String> QuestionQuizzpartheme(string theme)
         {
-            List<QuestionQuizz> questionQuizzs = new List<QuestionQuizz>();
+            List<String> questionQuizzs = new List<String>();
             
 
             var requeteQuestionQuizz = from QuestionQuizz in InitListeQuestionsQuizz()
                                 where QuestionQuizz.Quizz1.theme == theme
-                                select QuestionQuizz;
+                                select QuestionQuizz.questionQuizz1;
 
 
             questionQuizzs = requeteQuestionQuizz.ToList();
             return questionQuizzs;
 
         }
+
+        public List<String> ReponseQuizzparQuestion(string question)
+        {
+            List<String> reponseQuestion = new List<String>();
+
+
+            var requeteQuestionQuizz = from ReponseQuizz in InitListeReponseQuizz()
+                                       where ReponseQuizz.QuestionQuizz1.questionQuizz1 == question
+                                       select ReponseQuizz.reponseQuizz1 ;
+
+
+            reponseQuestion = requeteQuestionQuizz.ToList();
+            return reponseQuestion;
+
+        }
+
+        public ReponseQuizz RechercheReponseQuizz(string reponse)
+        {
+            ReponseQuizz reponseQuestion = new ReponseQuizz();
+
+
+            var requeteReponseQuizz = from ReponseQuizz in InitListeReponseQuizz()
+                                       where ReponseQuizz.reponseQuizz1 == reponse
+                                       select ReponseQuizz;
+
+
+            reponseQuestion = requeteReponseQuizz.Single();
+            return reponseQuestion;
+
+        }
+
+        public QuestionQuizz RechercheQuestionQuizz(string question)
+        {
+            QuestionQuizz questionQuizz = new QuestionQuizz();
+
+
+            var requeteQuestionQuizz = from QuestionQuizz in InitListeQuestionsQuizz()
+                                      where QuestionQuizz.questionQuizz1 == question
+                                      select QuestionQuizz;
+
+
+            questionQuizz = requeteQuestionQuizz.Single();
+            return questionQuizz;
+
+        }
+
+        public ReponseQuizz RechercheReponseTrueQuizz(string question)
+        {
+            ReponseQuizz reponseQuizz = new ReponseQuizz();
+            
+            var requeteReponseQuizz = from ReponseQuizz in InitListeReponseQuizz()
+                                      where ReponseQuizz.isTrue == "TRUE "
+                                      where ReponseQuizz.QuestionQuizz1.questionQuizz1 == question
+                                       select ReponseQuizz;
+
+
+            reponseQuizz = requeteReponseQuizz.Single();
+            return reponseQuizz;
+
+        }
+
     }
 }
