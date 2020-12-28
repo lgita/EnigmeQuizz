@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="GoOnThis2020Project:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/GoOnThis2020Project_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="GoOnThis2020Project/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="GoOnThis2020Project:war exploded" />
+      </element>
+      <element id="directory" name="ejb.jar">
+        <element id="artifact" artifact-name="GoOnThis2020Project:ejb exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>
